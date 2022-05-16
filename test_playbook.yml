@@ -1,0 +1,13 @@
+
+---
+- hosts: all
+  become: yes
+  tasks:
+    - command: 'cat /etc/redhat-release'
+      register: cat1
+    - command: 'tail /var/log/secure'
+      register: cat2
+    - debug:
+       var: cat1
+    - debug:
+       var: cat2
